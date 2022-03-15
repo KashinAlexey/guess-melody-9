@@ -2,16 +2,14 @@ export type ArtistAnswer = {
   artist: string;
   picture: string;
 };
-
 export type Song = {
   artist: string;
   src: string;
 };
-
 export type QuestionArtist = {
   answers: ArtistAnswer[];
   song: Song;
-  type: string;
+  type: 'artist';
 };
 
 export type GenreAnswer = {
@@ -21,13 +19,13 @@ export type GenreAnswer = {
 export type QuestionGenre = {
   answers: GenreAnswer[];
   genre: string;
-  type: string;
+  type: 'genre';
 };
 
 export type Question = QuestionArtist | QuestionGenre;
-
 export type Questions = Question[];
-
 export type UserGenreQuestionAnswer = readonly boolean[];
 
 export type UserArtistQuestionAnswer = string;
+
+export type UserAnswer = UserArtistQuestionAnswer | UserGenreQuestionAnswer;
