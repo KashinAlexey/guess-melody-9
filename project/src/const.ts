@@ -1,6 +1,5 @@
 export const MAX_MISTAKE_COUNT = 3;
 export const FIRST_GAME_STEP = 0;
-export const TIMEOUT_SHOW_ERROR = 2000;
 
 export enum AppRoute {
   Login = '/login',
