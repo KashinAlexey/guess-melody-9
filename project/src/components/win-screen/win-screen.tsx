@@ -1,11 +1,11 @@
 import {Link, useNavigate} from 'react-router-dom';
 import {useAppSelector, useAppDispatch} from '../../hooks';
-import {resetGame} from '../../store/action';
+import {resetGame} from '../../store/game-process/game-process';
 import {AppRoute} from '../../const';
 import {logoutAction} from '../../store/api-actions';
 
 function WinScreen(): JSX.Element {
-  const {step, mistakes} = useAppSelector((state) => state);
+  const {step, mistakes} = useAppSelector(({GAME}) => GAME);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();

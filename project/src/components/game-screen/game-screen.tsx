@@ -1,6 +1,6 @@
 import {Navigate} from 'react-router-dom';
 import {useAppDispatch, useAppSelector} from '../../hooks/';
-import {incrementStep, checkUserAnswer} from '../../store/action';
+import {incrementStep, checkUserAnswer} from '../../store/game-process/game-process';
 import {AppRoute, GameType, MAX_MISTAKE_COUNT} from '../../const';
 import ArtistQuestionScreen from '../artist-question-screen/artist-question-screen';
 import GenreQuestionScreen from '../genre-question-screen/genre-question-screen';
@@ -12,7 +12,8 @@ const ArtistQuestionScreenWrapped = withAudioPlayer(ArtistQuestionScreen);
 const GenreQuestionScreenWrapped = withAudioPlayer(GenreQuestionScreen);
 
 function GameScreen(): JSX.Element {
-  const {step, mistakes, questions} = useAppSelector((state) => state);
+  const {step, mistakes} = useAppSelector(({GAME}) => GAME);
+  const {questions} = useAppSelector(({DATA}) => DATA);
   const question = questions[step];
 
   const dispatch = useAppDispatch();
