@@ -8,5 +8,11 @@ describe('Function: isArtistAnswerCorrect', () => {
     const {artist: correctAnswer} = mockArtistQuestion.song;
     expect(isArtistAnswerCorrect(mockArtistQuestion, correctAnswer))
       .toBe(true);
-  });
+  }); // Позитивные сценарий (правильный ответ)
+
+  it('should return "false" when answer is incorrect', () => {
+    const incorrectAnswer = 'unknown';
+    expect(isArtistAnswerCorrect(mockArtistQuestion, incorrectAnswer))
+      .toBe(false);
+  }); // Негативный сценарий (не верный ответ)
 });
